@@ -1,0 +1,169 @@
+/*CV DISPOSITION*/
+.cv_area {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: grid;
+    gap: 1%;    
+}
+
+.cv_header {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: grid;
+    grid-template-columns: 0.2fr 1fr 3fr;
+    gap : 1%;
+}
+
+.cv_pp {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.cv_name {
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.cv_body {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: grid;
+    grid-template-columns: 2fr 6fr;
+    gap: 1%;
+}
+
+.cv_side_infos {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cv_main {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+/*FONTS*/
+p, li {
+    font-size: 1.4vmin;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-size: 1.6vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color: #72a9dc;
+}
+
+h3 {
+    font-size: 1.4vmin;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #72a9dc;
+}
+
+p {
+    margin: 0;
+}
+
+h2 {
+    margin-top: 0;
+    text-align: end;
+}
+
+h3 {
+    margin-bottom: 0;
+}
+
+h3 + p {
+    margin-top: 0;
+}
+
+ul {
+    margin-block-start: 0;
+}
+
+
+/*ANIMATIONS*/
+.cv_contacts, 
+.cv_location, 
+#pp, 
+.cv_search, 
+.cv_pace,
+.cv_formation,
+.cv_xp_pro,
+.skills,
+.cv_name { 
+    transition: all .2s;
+    transform-origin: right; 
+}
+
+.cv_contacts:hover, 
+.cv_location:hover, 
+.cv_search:hover, 
+.cv_pace:hover,
+.cv_formation:hover,
+.cv_xp_pro:hover,
+.skills:hover,
+.cv_name:hover {
+    z-index: 10;
+    background-color: white;
+    box-shadow: 3px 3px 10px #555;
+    transform: scale(1.5);
+    opacity: 0.95;
+}
+
+#pp:hover {
+    transform: scale(1.5); 
+}
+
+
+/*AUTRES*/
+.skills,
+.cv_contacts,
+.cv_location,
+.cv_pace,
+.cv_formation,
+.cv_xp_pro,
+.cv_search {
+    padding: 5px;
+}
+
+.cv_contacts{
+    margin-top: 15%;
+}
+
+.cv_area {
+    box-shadow: 1px 1px 10px #555;
+    padding: 1%;
+    padding-bottom: 3%;
+    margin: 2%;
+}
+
+.cv_name {
+    padding-left: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3.5vw;
+    color: #6296c7;
+}
+img {
+    width: 100%;
+    height: auto;
+}

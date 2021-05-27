@@ -1,0 +1,57 @@
+a img {
+    transition: all .2s;
+}
+
+a img:hover {
+    transform: scale(1.2);
+}
+
+
+.line h1 {
+    animation: showText 2580ms forwards;
+    transform: translate(0, 200%);
+}
+
+@keyframes showText {
+    0% {
+        transform: translate3d(0, -100%, 0);
+    }
+    100% {
+        transform: translate3d(0, 100%, 0);
+    }
+}
+
+
+.pp img {
+    animation: roll 1900ms 1 ease-out 580ms forwards;
+    left: -18rem;
+    position: relative;    
+}
+  
+@keyframes roll {
+    from {
+        transform: rotate(0deg);
+        left: -15rem;
+    }
+    to {
+        left: 0;
+        transform: rotate(360deg);
+    }
+}
+  
+
+a img, hr, .body p {
+    animation: fadein 4s;
+    -moz-animation: fadein 4s; /* Firefox */
+    -webkit-animation: fadein 4s; /* Safari et Chrome */
+    -o-animation: fadein 4s; /* Opera */
+}
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}

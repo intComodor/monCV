@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.shadow {
+    margin-left: 20vh;
+    margin-right: 20vh;
+    margin-top: 5vh;
+    height: 70vh;
+    position: relative;
+    box-shadow: 0 -40px 50px -40px rgba(51, 51, 51, 0.383);
+}
+
+.content {
+    border: 1px solid #ccc;
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);  
+    padding: 7vh;
+    height: 70vh;
+    position: absolute;
+    overflow-y: auto;
+}
+
+.content::-webkit-scrollbar { width: 0 !important }
+.content { overflow: -moz-scrollbars-none; }
+.content { -ms-overflow-style: none; }
+
+.content {
+    display: grid;
+    grid-template-rows: 1fr 7fr;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.line {
+    padding-left: 10%;
+}
+
+hr {
+    margin-top: 20%;
+    height: 5px;
+    background-color: #5b92c5cb;
+    border: none;
+}
+
+h1 {
+    text-align: end;
+    color: #5b92c5cb;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+h2 {
+    color: #5b92c5cb;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.body {
+    padding-top: 5%;
+    
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.tools {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.desc {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 3px;
+    background-color: #5b92c5cb;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 80px 25px 80px 25px 80px 1fr;
+}
+
+footer a:nth-child(1) {
+    grid-column-start: 2;
+}
+
+footer a:nth-child(2) {
+    grid-column-start: 4;
+}
+
+footer a:nth-child(3) {
+    grid-column-start: 6;
+}
+
+footer a {
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: normal;
+    text-decoration: none;
+}
+
+footer a { 
+    transition: all .2s;
+}
+
+footer a:hover {
+    transform: scale(1.1);
+}
