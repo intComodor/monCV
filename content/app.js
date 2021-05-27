@@ -196,7 +196,7 @@ const App = () => {
                   {win && <div id="win">BRAVO !</div>}
                   <canvas
                     id="ss"
-                    style={{ border: "1px solid black"}}
+                    style={start && { border: "1px solid black"} || { backgroundColor: "#72a9dc"}}
                     ref={canvasRef}
                     width={`${CANVAS_SIZE[0]}px`}
                     height={`${CANVAS_SIZE[1]}px`}
