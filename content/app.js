@@ -1,4 +1,7 @@
-const eg = document.getElementById("root").offsetWidth / 2;
+var initialX = null;
+var initialY = null;
+
+var eg = document.getElementById("root").offsetWidth / 2;
 let start = false;
 let score = 0;
 var nb_game = 0;
@@ -14,13 +17,13 @@ const UNVEIL_DIV = [
   'cv_xp_pro',
   'skills'];
 
-const CANVAS_SIZE = [eg*0.8, eg*0.8];
+var CANVAS_SIZE = [eg*0.8, eg*0.8];
 const SNAKE_START = [
   [6, 5],
   [6, 6]
 ];
 const APPLE_START = [0, 0];
-const SCALE = (eg*0.8)/10;
+var SCALE = (eg*0.8)/10;
 var SPEED = 200;
 const DIRECTIONS = {
   38: [0, -1],  // up
@@ -29,10 +32,41 @@ const DIRECTIONS = {
   39: [1, 0]    // right
 };
 
+window.addEventListener("resize", function(event) {
+  eg = document.getElementById("root").offsetWidth / 2;
+  CANVAS_SIZE[0] = eg*0.8;
+  CANVAS_SIZE[1] = eg*0.8;
+  SCALE = (eg*0.8)/10;
+  this.document.getElementById('ss').style.height = `${CANVAS_SIZE[1]}px`;
+  this.document.getElementById('ss').style.width = `${CANVAS_SIZE[0]}px`;
+  var e = document.getElementById("root").offsetHeight / 2;
+  e -= CANVAS_SIZE[1]/2;
+  e -= 20;
+  this.document.getElementById('progress_bar').style.bottom = `${e}px`;
+  this.document.getElementById('progress_bar').style.width = `${CANVAS_SIZE[0]}px`;
+  if (this.document.getElementById('score_text'))
+    this.document.getElementById('score_text').style.top = `${e - 150}px`;
+})
+
+
 const tab = [1, 2];
 let a = tab.map(title =>
   <div key={title}></div>
 );
+
+
+const SCORE_TEXT = [
+  'Ma photo',
+  'Mon nom',
+  'Mes contacts',
+  'Ma disponnibilité géographique',
+  'Ce que je recherche',
+  'Mon rythme d\'alternance',
+  'Mes formations',
+  'Mes experiences professionnelles',
+  'Mes compétences'
+];
+
 
 function useInterval(callback, delay) {
   const savedCallback = React.useRef();
@@ -124,6 +158,39 @@ const App = () => {
     return false;
   };
 
+  function startTouch(e) {    
+    initialX = e.touches[0].clientX;    
+    initialY = e.touches[0].clientY;  
+  };     
+  
+  function moveTouch(e) {    
+    if (initialX === null || initialY === null)      
+      return;        
+    
+    var currentX = e.touches[0].clientX;    
+    var currentY = e.touches[0].clientY;       
+    var diffX = initialX - currentX;    
+    var diffY = initialY - currentY;           
+    
+    if (Math.abs(diffX) > Math.abs(diffY)) {      
+      if (diffX > 0)        
+        setDir(DIRECTIONS[37])      
+      else        
+        setDir(DIRECTIONS[39])    
+    }     
+    else {      
+      if (diffY > 0)        
+        setDir(DIRECTIONS[38])       
+      else        
+        setDir(DIRECTIONS[40])    
+    }       
+    
+    initialX = null;    
+    initialY = null;         
+    e.preventDefault();  
+    
+  };
+
   /**
    * BOUCLE JEU
    */
@@ -139,8 +206,7 @@ const App = () => {
         document.getElementById(UNVEIL_DIV[score - 1]).style.filter = "blur(0)";
       
       SPEED = 200 - (score * 5);
-      setSpeed(SPEED);
-      
+      setSpeed(SPEED);      
   };
 
   /**
@@ -163,8 +229,26 @@ const App = () => {
     document.getElementById("btn").style.display = 'none';
     document.getElementById("jeu").focus();
 
+    document.getElementById('root').addEventListener("touchstart", startTouch, false);      
+    document.getElementById('root').addEventListener("touchmove", moveTouch, false);
+
     start = true;
+
+    var e = document.getElementById("root").offsetHeight / 2;
+    e -= CANVAS_SIZE[1]/2;
+    e -= 20;
+    document.getElementById('progress_bar').style.bottom = `${e}px`;
+    document.getElementById('progress_bar').style.width = `${CANVAS_SIZE[0]}px`;
+    document.getElementById('progress_bar').style.display = 'unset';
+
+    
   };
+
+  var z = document.getElementById("root").offsetHeight / 2;
+  z -= CANVAS_SIZE[1]/2;
+  z -= 20;
+  if (document.getElementById('score_text'))
+  document.getElementById('score_text').style.top = `${z - 150}px`;
 
   /**
    * AFFICHAGE
@@ -201,10 +285,12 @@ const App = () => {
                     width={`${CANVAS_SIZE[0]}px`}
                     height={`${CANVAS_SIZE[1]}px`}
                   />
-                  
-                    
+                  <progress id="progress_bar" max="9" value={score} ></progress>
+                  {score > 0 && score < 9 && <div key={score} id="score_text" >+{SCORE_TEXT[score-1]}</div>}
                   </div>
+                  
             </div>
+            
         </div>
 
         <div className="right_side">

@@ -5,8 +5,8 @@ body {
 }
 
 .shadow {
-    margin-left: 20vh;
-    margin-right: 20vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
     margin-top: 5vh;
     height: 70vh;
     position: relative;
@@ -17,11 +17,22 @@ body {
     border: 1px solid #ccc;
     -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 80%, transparent 100%);  
-    padding: 7vh;
+    padding: 7vw;
     height: 70vh;
     position: absolute;
     overflow-y: auto;
 }
+
+
+@media all and (max-width: 700px) {
+    .shadow {
+        margin-left: 2vw;
+        margin-right: 2vw;
+    }
+}
+
+
+
 
 
 .content::-webkit-scrollbar { width: 0 !important }
