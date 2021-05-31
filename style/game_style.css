@@ -25,7 +25,7 @@
 }
 
 
-#btn {
+button {
   background-color : blue;
   color: white;
   border-radius: 3px;
@@ -42,11 +42,11 @@
   margin-top: -(Y/2)u;
 }
 
-#btn { 
+button { 
   transition: all .2s;
 }
 
-#btn:hover {  
+button:hover {  
   box-shadow: 3px 3px 10px #555;
   transform: scale(1.1);
 }

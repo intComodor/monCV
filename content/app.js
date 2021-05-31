@@ -1,16 +1,7 @@
-var smallScreen;
-if (window.innerWidth > 800)
-  smallScreen = false;
-else 
-  smallScreen = true;
-
 var initialX = null;
 var initialY = null;
-if (window.innerWidth > 800)
-  var eg = document.getElementById("root").offsetWidth / 2;
-else 
-  var eg = document.getElementById("root").offsetWidth;
 
+var eg = document.getElementById("root").offsetWidth / 2;
 let start = false;
 let score = 0;
 var nb_game = 0;
@@ -42,51 +33,19 @@ const DIRECTIONS = {
 };
 
 window.addEventListener("resize", function(event) {
-  if (window.innerWidth > 800)
-    smallScreen = false;
-  else 
-    smallScreen = true;
-  
-  if (window.innerWidth > 800)
-    if (document.getElementById('ss') && document.getElementById('ss').style.display == 'none')
-      document.getElementById('ss').style.display = 'unset';
-
-  if (window.innerWidth > 800) {
-    if (window.offsetWidth > 800)
-      eg = document.getElementById("root").offsetWidth / 2;
-    else 
-      eg = document.getElementById("root").offsetWidth;
-    eg = document.getElementById("root").offsetWidth / 2;
-    CANVAS_SIZE[0] = eg*0.8;
-    CANVAS_SIZE[1] = eg*0.8;
-    SCALE = (eg*0.8)/10;
-    this.document.getElementById('ss').style.height = `${CANVAS_SIZE[1]}px`;
-    this.document.getElementById('ss').style.width = `${CANVAS_SIZE[0]}px`;
-    var e = document.getElementById("root").offsetHeight / 2;
-    e -= CANVAS_SIZE[1]/2;
-    e -= 20;
-    
-    this.document.getElementById('progress_bar').style.top = 'unset';
-    this.document.getElementById('progress_bar').style.bottom = `${e}px`;
-    this.document.getElementById('progress_bar').style.width = `${CANVAS_SIZE[0]}px`;
-    if (this.document.getElementById('score_text'))
-      this.document.getElementById('score_text').style.top = `${e - 150}px`;
-  }
-  else {
-    var h_cv = this.document.getElementById('cv').offsetHeight;
-    var h_jeu = this.document.getElementById('ss').offsetHeight;
-    this.document.getElementById('progress_bar').style.top = `${h_jeu + ((h_cv/2)-(h_jeu/2)) + 15}px`;
-    this.document.getElementById('jeu').style.top = `${(h_cv/2) - (h_jeu/2)}px`;
-    this.document.getElementById('jeu').style.left = `${(this.window.innerWidth/2) - (h_jeu/2)}px`;
-
-    eg = document.getElementById("root").offsetWidth;
-    CANVAS_SIZE[0] = eg*0.8;
-    CANVAS_SIZE[1] = eg*0.8;
-    SCALE = (eg*0.8)/10;
-    this.document.getElementById('ss').style.height = `${CANVAS_SIZE[1]}px`;
-    this.document.getElementById('ss').style.width = `${CANVAS_SIZE[0]}px`;
-    this.document.getElementById('progress_bar').style.width = `${CANVAS_SIZE[0]}px`;
-  }
+  eg = document.getElementById("root").offsetWidth / 2;
+  CANVAS_SIZE[0] = eg*0.8;
+  CANVAS_SIZE[1] = eg*0.8;
+  SCALE = (eg*0.8)/10;
+  this.document.getElementById('ss').style.height = `${CANVAS_SIZE[1]}px`;
+  this.document.getElementById('ss').style.width = `${CANVAS_SIZE[0]}px`;
+  var e = document.getElementById("root").offsetHeight / 2;
+  e -= CANVAS_SIZE[1]/2;
+  e -= 20;
+  this.document.getElementById('progress_bar').style.bottom = `${e}px`;
+  this.document.getElementById('progress_bar').style.width = `${CANVAS_SIZE[0]}px`;
+  if (this.document.getElementById('score_text'))
+    this.document.getElementById('score_text').style.top = `${e - 150}px`;
 })
 
 
@@ -275,49 +234,21 @@ const App = () => {
 
     start = true;
 
+    var e = document.getElementById("root").offsetHeight / 2;
+    e -= CANVAS_SIZE[1]/2;
+    e -= 20;
+    document.getElementById('progress_bar').style.bottom = `${e}px`;
+    document.getElementById('progress_bar').style.width = `${CANVAS_SIZE[0]}px`;
+    document.getElementById('progress_bar').style.display = 'unset';
 
-    if (window.innerWidth > 800) {
-      var e = document.getElementById("root").offsetHeight / 2;
-      e -= CANVAS_SIZE[1]/2;
-      e -= 20;
-      document.getElementById('progress_bar').style.bottom = `${e}px`;
-      document.getElementById('progress_bar').style.width = `${CANVAS_SIZE[0]}px`;
-      document.getElementById('progress_bar').style.display = 'unset';
-    }
-    else {
-      var h_cv = document.getElementById('cv').offsetHeight;
-      var h_jeu = document.getElementById('ss').offsetHeight;
-      document.getElementById('progress_bar').style.top = `${h_jeu + ((h_cv/2)-(h_jeu/2)) + 15}px`;
-      document.getElementById('progress_bar').style.width = `${CANVAS_SIZE[0]}px`;
-      document.getElementById('progress_bar').style.display = 'unset';
-    }
+    
   };
 
-  const restartGame = () => {
-    document.getElementById('btn1').style.display = 'none';
-    if (document.getElementById('btn2'))
-      document.getElementById('btn2').style.display = 'none';
-    if (document.getElementById('btn3'))
-    document.getElementById('btn3').style.display = 'none';
-    document.getElementById('ss').style.display = 'unset';
-    startGame();
-  };
-
-  if (window.innerWidth > 800 ) {
-    var z = document.getElementById("root").offsetHeight / 2;
-    z -= CANVAS_SIZE[1]/2;
-    z -= 20;
-    if (document.getElementById('score_text'))
-    document.getElementById('score_text').style.top = `${z - 150}px`;
-  }
-
-  if ((win || (gameOver && !win)) && smallScreen) {
-    document.getElementById('btn').style.display = 'none';
-    document.getElementById('ss').style.display = 'none';
-    //document.getElementById('win').style.display = 'none';
-    //TODO regler affichage progress
-  }
-
+  var z = document.getElementById("root").offsetHeight / 2;
+  z -= CANVAS_SIZE[1]/2;
+  z -= 20;
+  if (document.getElementById('score_text'))
+  document.getElementById('score_text').style.top = `${z - 150}px`;
 
   /**
    * AFFICHAGE
@@ -340,19 +271,16 @@ const App = () => {
     <div>   
     <div className="main" id="main">
     {win && [...Array(13).keys()].map(i =><span className="confetti" key={i}></span>)}
-    {smallScreen && (win || (gameOver && !win)) && <button id="btn1" onClick={restartGame}>Rejouer</button>}
-    {smallScreen && win && <button id="btn2"><a href="img/cv.pdf" target="_blank">Voir mon CV</a></button>}
-    {smallScreen && (gameOver && !win) && <button id="btn3"><a href="img/cv.pdf" target="_blank">Tricher et voir mon CV</a></button>}
         <div className="left_side">
             <div id="game_area" className="game_area">
                 <div id="jeu" className="jeu" role="button" tabIndex="0" onKeyDown={e => moveSnake(e)}>
                   <button id="btn" onClick={startGame}>{(nb_game < 1) ? 'Commencer' : 'Rejouer'}</button>
                   {!nb_game && <div id="rule">Bienvenue sur le SNAKARIM!<br/>Pour découvrir mon CV attrapez<br/>le plus de «tête de Karim».<br/>Bonne chance!</div>}
-                  {!smallScreen && gameOver && !win && <div id="loose">Perdu!<br/>Mauvais perdant?<br/>Vous pouvez consulter mon CV <a href="img/cv.pdf" target="_blank">ici</a><br/>ou retenter votre chance.</div>}
-                  {!smallScreen && win && <div id="win">BRAVO !<br/>Vous pouvez consulter mon CV<br/><a href="img/cv.pdf" target="_blank">ici</a>.</div>}
+                  {gameOver && !win && <div id="loose">Perdu!<br/>Mauvais perdant?<br/>Vous pouvez consulter mon CV <a href="img/cv.pdf" target="_blank">ici</a><br/>ou retenter votre chance.</div>}
+                  {win && <div id="win">BRAVO !<br/>Vous pouvez consulter mon CV<br/><a href="img/cv.pdf" target="_blank">ici</a>.</div>}
                   <canvas
                     id="ss"
-                    style={start && { border: "1px solid black", backgroundColor: "#72a9dc57"} || { backgroundColor: "#72a9dc"}}
+                    style={start && { border: "1px solid black"} || { backgroundColor: "#72a9dc"}}
                     ref={canvasRef}
                     width={`${CANVAS_SIZE[0]}px`}
                     height={`${CANVAS_SIZE[1]}px`}
@@ -366,7 +294,7 @@ const App = () => {
         </div>
 
         <div className="right_side">
-        <div className="cv_area" tabIndex="0" id="cv">
+        <div className="cv_area" tabIndex="0">
             <div className="cv_header">
                 <div id="cv_pp" className="cv_pp" tabIndex="0"><img src="img/pp.png" alt="" id="pp"></img></div>
                 <div id="cv_name" className="cv_name">BOUALI Karim</div>
