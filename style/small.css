@@ -1,0 +1,255 @@
+.left_side {
+    position: absolute;
+    z-index: 10;
+}
+
+.game_area {
+    /* position: relative; */
+    height: 100vh;
+    width: 100vw;
+
+}
+  
+#jeu {
+    position: absolute;
+    top: 100px;
+    /* left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
+    /* display: flex;
+    flex-direction: row;
+    align-items: center; */
+    
+  }
+
+  #rule, #loose, #win {
+    position: absolute;
+    z-index: 10;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2vh;
+    text-align: center;
+    
+    left: 50%;
+    top: 30%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    
+  }
+  
+  
+  #btn {
+    background-color : blue;
+    color: white;
+    border-radius: 3px;
+    border: 2px solid blue;
+    padding: .75rem 1rem;
+    font-size: 2.5vw;
+    cursor: pointer;
+    box-shadow: 0 0 10px black;
+
+    z-index: 10;
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  #btn1, #btn2, #btn3 {
+    
+    background-color : blue;
+    color: white;
+    border-radius: 3px;
+    border: 2px solid blue;
+    padding: .75rem 1rem;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 0 10px black;
+
+    z-index: 10;
+    position: absolute;
+  }
+
+  button a {
+      
+    color: white; 
+    font-size: 15px;
+    font-style: normal;
+    text-decoration: none;
+  }
+
+  #btn1 {
+      top: 5px;
+      right: 10px;
+  }
+
+  #btn2, #btn3 {
+    top: 5px;
+    right: 110px;
+  }
+
+
+
+
+
+  
+progress {
+    z-index: 10;
+    position: absolute;
+    display: block;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    top: 0px;
+    display: none;
+}
+
+
+#score_text {
+    position: absolute;
+    left: 10vw;
+    z-index: 1;
+    font-size: 3vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color: #0075ff;
+    opacity: 0;
+    animation: score 2s;
+    }
+
+    @keyframes score {
+    0% {
+        margin-top: 150px;
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+    }
+
+.cv_name,
+.cv_pp,
+.cv_contacts,
+.cv_location,
+.cv_pace,
+.cv_search,
+.cv_formation,
+.cv_xp_pro,
+.skills {
+    filter: blur(4px);
+}
+
+  
+.confetti {
+width: 15px;
+height: 15px;
+position: absolute;
+left: 50%;
+animation: confetti 5s ease-in-out -2s infinite;
+transform-origin: left top;
+}
+
+.confetti:nth-child(1) {
+background-color: #72a9dc;
+left: 10%;
+animation-delay: 0;
+}
+
+.confetti:nth-child(2) {
+background-color: #0000ff;
+left: 20%;
+animation-delay: -5s;
+}
+
+.confetti:nth-child(3) {
+background-color: #72a9dc;
+left: 30%;
+animation-delay: -3s;
+}
+
+.confetti:nth-child(4) {
+background-color: #0000ff;
+left: 40%;
+animation-delay: -2.5s;
+}
+
+.confetti:nth-child(5) {
+background-color: #7ca8d1;
+
+left: 50%;
+animation-delay: -4s;
+}
+
+.confetti:nth-child(6) {
+background-color: #72a9dc;
+left: 60%;
+animation-delay: -6s;
+}
+
+.confetti:nth-child(7) {
+background-color: #0000ff;
+left: 70%;
+animation-delay: -1.5s;
+}
+
+.confetti:nth-child(8) {
+background-color: #72a9dc;
+left: 80%;
+animation-delay: -2s;
+}
+
+.confetti:nth-child(9) {
+background-color: #0000ff;
+left: 90%;
+animation-delay: -3.5s;
+}
+
+.confetti:nth-child(10) {
+background-color: #7ca8d1;
+left: 100%;
+animation-delay: -2.5s;
+}
+
+.confetti:nth-child(11) {
+background-color: #72a9dc;
+left: 72%;
+animation-delay: -5.5s;
+}
+
+.confetti:nth-child(12) {
+background-color: #7ca8d1;
+left: 34%;
+animation-delay: -2.8s;
+}
+
+.confetti:nth-child(13) {
+background-color: #0000ff;
+left: 100%;
+animation-delay: -7.5s;
+}
+
+.confetti:nth-child(14) {
+background-color: #72a9dc;
+left: 16%;
+animation-delay: -8.5s;
+}
+
+@keyframes confetti {
+0% {
+    transform: rotateZ(15deg) rotateY(0deg) translate(0, 0);
+}
+25% {
+    transform: rotateZ(5deg) rotateY(360deg) translate(-5vw, 20vh);
+}
+50% {
+    transform: rotateZ(15deg) rotateY(720deg) translate(5vw, 60vh);
+}
+75% {
+    transform: rotateZ(5deg) rotateY(1080deg) translate(-10vw, 80vh);
+}
+100% {
+    transform: rotateZ(15deg) rotateY(1440deg) translate(10vw, 110vh);
+}
+}
+

@@ -57,12 +57,6 @@ p, li {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
 h2 {
     font-size: 1.6vh;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -74,6 +68,33 @@ h3 {
     font-size: 1.4vmin;
     font-family: Arial, Helvetica, sans-serif;
     color: #72a9dc;
+}
+
+.cv_name {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3.5vw;
+    color: #6296c7;
+}
+
+@media all and (max-width: 800px) {
+    p, li {
+        font-size: calc(min(2vw, 1.4vh));
+    }
+    h2 {
+        font-size: calc(min(3vw, 2vh));
+    }
+    h3 {
+        font-size: calc(min(2.5vw, 1.75vh));
+    }
+    .cv_name {
+        font-size: calc(min(6vw, 5vh));
+    }
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 p {
@@ -154,14 +175,21 @@ ul {
     margin: 2%;
 }
 
+@media all and (max-width: 800px) {
+    .cv_area {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
 .cv_name {
     padding-left: 15%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif;
     font-size: 3.5vw;
-    color: #6296c7;
+    color: #6296c7; */
 }
 img {
     width: 100%;
